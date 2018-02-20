@@ -1,0 +1,9 @@
+<% @battles.each do |battle| %>
+  <ul>
+      <li>title:<%= battle.title %></li>
+      <li>organizer:<%= battle.users.username %></li>
+      <li>date:<%= battle.battle_date %></li>
+      <li>place:<%= battle.place %></li>
+      <li>content:<%= battle.content %></li>
+  </ul>
+<% end %>
