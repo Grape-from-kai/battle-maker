@@ -1,9 +1,14 @@
 <% @battles.each do |battle| %>
   <ul>
       <li>title:<%= battle.title %></li>
-      <li>organizer:<%= battle.users.username %></li>
+      <li>organizer:<%= battle.user.username %></li>
       <li>date:<%= battle.battle_date %></li>
       <li>place:<%= battle.place %></li>
       <li>content:<%= battle.content %></li>
+      <li><%= link_to "show",battle_path(battle.id) %></li>
+      <li><%= link_to "edit",edit_battle_path(battle.id) %></li>
+      <li><%= link_to "destroy",battle_path(battle.id),method: :delete %></li>
+      <li><%= link_to "join", participant_managements_path(battle_id: battle.id), method: :post %></li>
+      <li><%= link_to "cancel", participant_management_path(battle.id),method: :delete %></li>
   </ul>
 <% end %>
