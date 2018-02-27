@@ -6,3 +6,8 @@
 <p>date:<%= @battle.battle_date %></p>
 <p>place:<%= @battle.place %></p>
 <p>content:<%= @battle.content %></p>
+<% if @joined.present? %>
+  <li><%= link_to "cancel", participant_management_path(@joined.id), method: :delete %></li>
+<% else %>
+  <li><%= link_to "join", participant_managements_path(battle_id: @battle.id), method: :post %></li>
+<% end %>

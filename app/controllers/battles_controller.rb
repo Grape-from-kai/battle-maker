@@ -21,6 +21,7 @@ class BattlesController < ApplicationController
   end
   
   def show
+    @joined = current_user.participant_managements.find_by(battle_id: @battle.id)
   end
   
   def edit

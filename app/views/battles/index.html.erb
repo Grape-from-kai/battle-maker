@@ -5,10 +5,12 @@
       <li>date:<%= battle.battle_date %></li>
       <li>place:<%= battle.place %></li>
       <li>content:<%= battle.content %></li>
-      <li><%= link_to "show",battle_path(battle.id) %></li>
-      <li><%= link_to "edit",edit_battle_path(battle.id) %></li>
-      <li><%= link_to "destroy",battle_path(battle.id),method: :delete %></li>
-      <li><%= link_to "join", participant_managements_path(battle_id: battle.id), method: :post %></li>
-      <li><%= link_to "cancel", participant_management_path(battle.id),method: :delete %></li>
+      <% if user_signed_in? %>
+        <% if organizer?(battle) == true %>
+          <li><%= link_to "edit",edit_battle_path(battle.id) %></li>
+          <li><%= link_to "destroy",battle_path(battle.id),method: :delete %></li>
+        <% end %>
+        <li><%= link_to "show", battle_path(battle.id) %></li>
+      <% end %>
   </ul>
 <% end %>
