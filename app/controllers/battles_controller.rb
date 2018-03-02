@@ -22,6 +22,8 @@ class BattlesController < ApplicationController
   
   def show
     @joined = current_user.participant_managements.find_by(battle_id: @battle.id)
+    @comment = @battle.comments.build
+    @comments = @battle.comments
   end
   
   def edit

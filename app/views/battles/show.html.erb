@@ -11,3 +11,12 @@
 <% else %>
   <li><%= link_to "join", participant_managements_path(battle_id: @battle.id), method: :post %></li>
 <% end %>
+
+<p>コメント一覧</p>
+<div id="comments_area">
+  <!-- コメント一覧をbattle/showに表示 -->
+  <%= render partial: 'comments/index', locals: { comments: @comments, battle: @battle } %>
+</div>
+
+<!-- コメント入力欄 -->
+<%= render partial: 'comments/form', locals: {comment: @comment, battle: @battle } %>

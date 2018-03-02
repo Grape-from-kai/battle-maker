@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :users,only:[:show]
   
   
-  resources :battles
+  resources :battles do
+    resources :comments
+  end
+    
   resources :participant_managements, only:[:index, :create, :destroy]
   
   if Rails.env.development?
