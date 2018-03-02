@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if current_user.try(:admin?) %>
+      <p>admin_user</p>
+    <% end %>
     
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

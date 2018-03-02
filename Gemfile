@@ -57,3 +57,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+#管理画面用
+gem 'rails_admin', '~> 1.3'
+gem 'cancancan', '~> 2.0'
