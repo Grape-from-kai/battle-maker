@@ -2,7 +2,7 @@
   <% comments.each do |comment| %>
     <% unless comment.id.nil? %>
       <li>
-        <p><%= comment.content %></p>
+        <p>user:<%= comment.user.username %> content:<%= comment.content %></p>
       </li>
     <% end %>
   <% end %>
