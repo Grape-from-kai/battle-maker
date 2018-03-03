@@ -1,0 +1,19 @@
+body .container-fluid{
+    width: 100%;
+    padding: 0;
+    
+}
+
+.footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    line-height: 1rem;
+    color: white;
+    background-color: black;
+}
+
+.footer p{
+    margin: 0.5rem;
+    text-align: center;
+}
