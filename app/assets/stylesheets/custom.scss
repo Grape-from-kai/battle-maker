@@ -1,15 +1,36 @@
-body .container-fluid{
+/* コンテンツが足らない場合でもfooterを下部固定するため */
+html,body{
+    height: 100%;
+}
+
+body{
     width: 100%;
+    min-height: 100%;
     padding: 0;
+}
+
+/* overflow: hidden ←これがないと画面右端に謎の空白ができるため */
+.container-fluid{
+    width: 100%;
+    min-height: 100%;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-wrapper{
     
+    padding: 0 1rem 2rem 1rem;
 }
 
 .footer{
     position: absolute;
     width: 100%;
     bottom: 0;
+    height: 2rem;
     line-height: 1rem;
     color: white;
+    opacity: 0.5;
     background-color: black;
 }
 

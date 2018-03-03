@@ -1,19 +1,21 @@
 <div class="row">
   <% @battles.each do |battle| %>
-      <div class="col-lg-3 col-sm-4 col-xs-12">
+      <div class="card-row col-lg-3 col-sm-4 col-xs-12">
         <div class="card">
           <div class="card-body">
             <h3 class="card-title"><%= battle.title %></h3>
             <h6 class="card-subtitle text-muted">開催日時：<%= battle.battle_date %></h6></br>
             <h6 class="card-subtitle text-muted">場所：<%= battle.place %></h6></br>
             <p class="card-text"><%= battle.content %></p>
-            <% if user_signed_in? %>
-              <% if organizer?(battle) == true %>
-                <li><%= link_to "edit",edit_battle_path(battle.id) %></li>
-                <li><%= link_to "destroy",battle_path(battle.id),method: :delete %></li>
+            <div class="action-menu">
+              <% if user_signed_in? %>
+                <% if organizer?(battle) == true %>
+                  <%= link_to "edit",edit_battle_path(battle.id),class: "btn btn-outline-success" %>
+                  <%= link_to "destroy",battle_path(battle.id),method: :delete,class: "btn btn-outline-danger" %>
+                <% end %>
+                <%= link_to "show", battle_path(battle.id),class: "btn btn-outline-warning" %>
               <% end %>
-              <li><%= link_to "show", battle_path(battle.id) %></li>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>

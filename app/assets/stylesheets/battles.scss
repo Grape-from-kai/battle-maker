@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* card一枚ごとにmargin-bottomを効かせるために分けてます */
+.card-row{
+    margin-bottom: 1rem;
+}
+
 .card{
     height: 100%;
 }
+
+.card-body{
+    position: relative;
+    min-height: 100%;
+}
+
+.card-text{
+    padding-bottom: 1.5rem;
+}
+
+.card-body .action-menu{
+    position: absolute;
+    bottom: 1rem;
+}
+
