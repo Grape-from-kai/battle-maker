@@ -1,18 +1,35 @@
-<h1>battle#show</h1>
+<h1></h1>
 
 
-<p>title:<%= @battle.title %></p>
-<p>organizer<%= @battle.user.username %></p>
-<p>date:<%= @battle.battle_date %></p>
-<p>place:<%= @battle.place %></p>
-<p>content:<%= @battle.content %></p>
-<% if @joined.present? %>
-  <li><%= link_to "cancel", participant_management_path(@joined.id), method: :delete %></li>
-<% else %>
-  <li><%= link_to "join", participant_managements_path(battle_id: @battle.id), method: :post %></li>
-<% end %>
+<h3><%= @battle.title %></h3>
+<table class="battle-info">
+  <tr>
+    <td>主催者:</td>
+    <th><%= @battle.user.username %></th>
+  </tr>
+  <tr>
+    <td>日時:</td>
+    <th><%= @battle.battle_date.year %>年<%= @battle.battle_date.month %>月<%= @battle.battle_date.day %>日 <%= @battle.battle_date.hour %>時 <%= @battle.battle_date.min %>分</th>
+  </tr>
+  <tr>
+    <td>場所:</td>
+    <th><%= @battle.place %></th>
+  </tr>
+  <tr>
+    <td>概要:</td>
+    <th><%= @battle.content %></th>
+  </tr>
+</table>
 
-<p>コメント一覧</p>
+<div class="participant-button">
+  <% if @joined.present? %>
+    <%= link_to "cancel", participant_management_path(@joined.id),class: "btn btn-outline-danger", method: :delete %>
+  <% else %>
+    <%= link_to "join", participant_managements_path(battle_id: @battle.id),class: "btn btn-outline-primary", method: :post %>
+  <% end %>
+</div>
+<br>
+<h3>コメント一覧</h3>
 <div id="comments_area">
   <!-- コメント一覧をbattle/showに表示 -->
   <%= render partial: 'comments/index', locals: { comments: @comments, battle: @battle } %>

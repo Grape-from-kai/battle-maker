@@ -17,7 +17,7 @@
 }
 
 .card-text{
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
 }
 
 .card-body .action-menu{
@@ -25,3 +25,7 @@
     bottom: 1rem;
 }
 
+/*showアクション内table */
+.battle-info td{
+    text-align: right;
+}

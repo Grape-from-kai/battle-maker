@@ -11,13 +11,12 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <table>
+    <tr class="field">
+      <td><%= form.text_area :content %></td>
+    </tr>
+    <tr class="actions">
+      <td><%= form.submit %></td>
+    </tr>
+  </table>
 <% end %>
