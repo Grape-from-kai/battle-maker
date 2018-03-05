@@ -1,39 +1,51 @@
-<h1></h1>
-
-
-<h3><%= @battle.title %></h3>
-<table class="battle-info">
-  <tr>
-    <td>主催者:</td>
-    <th><%= @battle.user.username %></th>
-  </tr>
-  <tr>
-    <td>日時:</td>
-    <th><%= @battle.battle_date.year %>年<%= @battle.battle_date.month %>月<%= @battle.battle_date.day %>日 <%= @battle.battle_date.hour %>時 <%= @battle.battle_date.min %>分</th>
-  </tr>
-  <tr>
-    <td>場所:</td>
-    <th><%= @battle.place %></th>
-  </tr>
-  <tr>
-    <td>概要:</td>
-    <th><%= @battle.content %></th>
-  </tr>
-</table>
-
-<div class="participant-button">
-  <% if @joined.present? %>
-    <%= link_to "cancel", participant_management_path(@joined.id),class: "btn btn-outline-danger", method: :delete %>
-  <% else %>
-    <%= link_to "join", participant_managements_path(battle_id: @battle.id),class: "btn btn-outline-primary", method: :post %>
-  <% end %>
-</div>
-<br>
-<h3>コメント一覧</h3>
-<div id="comments_area">
-  <!-- コメント一覧をbattle/showに表示 -->
-  <%= render partial: 'comments/index', locals: { comments: @comments, battle: @battle } %>
-</div>
-
-<!-- コメント入力欄 -->
-<%= render partial: 'comments/form', locals: {comment: @comment, battle: @battle } %>
+  <div class="row">
+    <!-- バトル詳細情報 -->
+    <div class="battle-info col-md-6">
+      <h3><%= @battle.title %></h3>
+      <table>
+        <tr>
+          <td>主催者:</td>
+          <th><%= @battle.user.username %></th>
+        </tr>
+        <tr>
+          <td>日時:</td>
+          <th><%= @battle.battle_date.year %>年<%= @battle.battle_date.month %>月<%= @battle.battle_date.day %>日 <%= @battle.battle_date.hour %>時 <%= @battle.battle_date.min %>分</th>
+        </tr>
+        <tr>
+          <td>場所:</td>
+          <th><%= @battle.place %></th>
+        </tr>
+        <tr>
+          <td>概要:</td>
+          <th><%= @battle.content %></th>
+        </tr>
+      </table>
+      
+      <div class="participant-button">
+        <% if @joined.present? %>
+          <%= link_to "cancel", participant_management_path(@joined.id),class: "btn btn-outline-danger", method: :delete %>
+        <% else %>
+          <%= link_to "join", participant_managements_path(battle_id: @battle.id),class: "btn btn-outline-primary", method: :post %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="participant-info col-md-6">
+      <h4>参加者一覧</h4>
+      <ul>
+        <% @battle.participant_managements.each do |p| %>
+          <li><%= p.user.username %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  
+  <br>
+  <h3>コメント一覧</h3>
+  <div id="comments_area">
+    <!-- コメント一覧をbattle/showに表示 -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, battle: @battle } %>
+  </div>
+  
+  <!-- コメント入力欄 -->
+  <%= render partial: 'comments/form', locals: {comment: @comment, battle: @battle } %>

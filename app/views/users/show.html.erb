@@ -9,7 +9,8 @@
     <tr>
       <td><%= p.battle.title %></td>
       <td><%= p.battle.battle_date.year %>年<%= p.battle.battle_date.month %>月<%= p.battle.battle_date.day %>日 <%= p.battle.battle_date.hour %>時 <%= p.battle.battle_date.min %>分</td>
-      <td><%= link_to "cancel",participant_management_path(p.id),class: "btn btn-danger", method: :delete %></td>
+      <td><%= link_to "show",battle_path(p.battle_id),class: "btn btn-outline-warning" %></td>
+      <td><%= link_to "cancel",participant_management_path(p.id),class: "btn btn-outline-danger", method: :delete %></td>
     </tr>
   <% end %>
 <% end %>

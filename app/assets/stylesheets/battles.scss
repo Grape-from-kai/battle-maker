@@ -10,6 +10,12 @@
 .card{
     height: 100%;
 }
+/* white-space,overflow,text-overflowは文字列を一列に抑え、...にするため*/
+.card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .card-body{
     position: relative;
@@ -18,11 +24,18 @@
 
 .card-text{
     padding-bottom: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-body .action-menu{
     position: absolute;
     bottom: 1rem;
+}
+
+.battle-info{
+    padding-bottom: 2rem;
 }
 
 /*showアクション内table */
