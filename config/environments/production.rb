@@ -61,6 +61,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "battle-maker_#{Rails.env}"
   config.action_mailer.perform_caching = false
+  
+  #herokuメール設定
+  config.action_mailer.default_url_options = { host: 'still-sea-21287.herokuapp.com' }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings ={
+     user_name: ENV['SENDGRID_USERNAME'],
+     password: ENV['SENDGRID_PASSWORD'],
+     domain: "heroku.com",
+     address: "smtp.sendgrid.net",
+     port: 587,
+     authentication: :plain,
+     enable_starttls_auto: true
+    }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
