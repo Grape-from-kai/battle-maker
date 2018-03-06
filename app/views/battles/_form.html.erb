@@ -3,7 +3,6 @@
   <% if @battle.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@battle.errors.count, "error") %> prohibited this blog from being saved:</h2>
-
       <ul>
       <% @battle.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -14,25 +13,25 @@
   
   <!-- 新規作成/編集フォーム -->
   <table class="field">
-      <tr>
-          <td><%= form.label :title %></td>
-          <td><%= form.text_field :title, id: :battle_title %></td>
-      </tr>
-      <tr>
-          <td><%= form.label :battle_date %></td>
-          <td><%= form.datetime_select :battle_date %></td>
-      </tr>
-      <tr>
-          <td><%= form.label :place %></td>
-          <td><%= form.text_field :place %></td>
-      </tr>
-      <tr>
-          <td><%= form.label :content %></td>
-          <td><%= form.text_area :content, id: :battle_content %></td>
-      </tr>
-      <tr>
-          <td></td>
-          <td class="actions"><%= form.submit %></td>
-      </tr>
+    <tr>
+      <td><%= form.label :title %></td>
+      <td><%= form.text_field :title, id: :battle_title %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :battle_date %></td>
+      <td><%= form.datetime_select :battle_date %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :place %></td>
+      <td><%= form.text_field :place %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :content %></td>
+      <td><%= form.text_area :content, id: :battle_content %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="actions"><%= form.submit %></td>
+    </tr>
   </table>
 <% end %>

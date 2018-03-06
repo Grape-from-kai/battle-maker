@@ -1,7 +1,3 @@
-// Place all the styles related to the battles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 /* card一枚ごとにmargin-bottomを効かせるために分けてます */
 .card-row{
     margin-bottom: 1rem;
@@ -10,6 +6,7 @@
 .card{
     height: 100%;
 }
+
 /* white-space,overflow,text-overflowは文字列を一列に抑え、...にするため*/
 .card-title{
     white-space: nowrap;

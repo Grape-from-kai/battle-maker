@@ -1,5 +1,5 @@
 class BattlesController < ApplicationController
-  before_action :set_battle,only:[:show, :edit, :update, :destroy]
+  before_action :set_battle, only:[:show, :edit, :update, :destroy]
   
   def index
     @battles = Battle.all.order("battle_date DESC")
