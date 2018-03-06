@@ -14,8 +14,10 @@ class BattlesController < ApplicationController
   end
     
   def create
-    @battle = Battle.new(battle_params)
-    @battle.user_id = current_user.id
+    # @battle = Battle.new(battle_params)
+    # @battle.user_id = current_user.id
+    # アソシエーションメソッド使用、しかしuser_idが@battleに格納されず。
+    @battle = current_user.battles.new(battle_params)
     @battle.save
     redirect_to battles_path
   end
