@@ -1,15 +1,15 @@
 <ul>
   <table>
     <tr>
-           <th>ユーザー名</th>
-           <th>内容</th>
+      <th>ユーザー名</th>
+      <th>内容</th>
     </tr>
     <% comments.each do |comment| %>
       <% unless comment.id.nil? %>
-          <tr>
-            <td><%= comment.user.username %></td>
-            <td><%= comment.content %></td>
-          </tr>
+        <tr>
+          <td><%= comment.user.username %></td>
+          <td><%= comment.content %></td>
+        </tr>
       <% end %>
     <% end %>
   </table>

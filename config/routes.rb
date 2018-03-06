@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'battles#top'
   devise_for :users
-  resources :users,only:[:show]
+  resources :users, only:[:show]
   
   
   resources :battles do

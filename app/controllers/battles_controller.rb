@@ -38,9 +38,7 @@ class BattlesController < ApplicationController
     @battle.destroy
     redirect_to battles_path
   end
-    
-  
-  
+
   private
   def battle_params
     params.require(:battle).permit(:title, :content, :place, :battle_date, :user_id)

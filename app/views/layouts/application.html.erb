@@ -11,6 +11,7 @@
 
   <body>
     <div class="container-fluid">
+      
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <%= link_to image_tag('navtop.png'), top_battles_path, class:"navbar-brand nav-top" %>
@@ -18,17 +19,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li><%= link_to "対戦会一覧",battles_path,class: "nav-link" %></li>
-          <li><%= link_to "新規作成",new_battle_path,class: "nav-link" %></li>
-          <li><%= link_to "サインアウト",destroy_user_session_path,method: :delete,class: "nav-link" %></li>
-          <li><%= link_to "ユーザ", user_path(current_user.id),class: "nav-link" %></li>
-        <% else %>
-          <li><%= link_to "ログイン",new_user_session_path,class: "nav-link" %></li>
-          <li><%= link_to "サインアップ",new_user_registration_path,class: "nav-link" %></li>
-        <% end %>
-      </ul>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to "対戦会一覧", battles_path, class: "nav-link" %></li>
+            <li><%= link_to "新規作成", new_battle_path, class: "nav-link" %></li>
+            <li><%= link_to "サインアウト", destroy_user_session_path,method: :delete, class: "nav-link" %></li>
+            <li><%= link_to "ユーザ", user_path(current_user.id), class: "nav-link" %></li>
+          <% else %>
+            <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
+            <li><%= link_to "サインアップ", new_user_registration_path, class: "nav-link" %></li>
+          <% end %>
+        </ul>
       </div>
     </nav>
     
@@ -47,7 +48,7 @@
     
     <!-- フッター -->
     <footer class="footer">
-        <p>footerです</p>
+      <p>footerです</p>
     </footer>
   </div>
   </body>
