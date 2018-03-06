@@ -6,9 +6,9 @@ class ParticipantManagementsController < ApplicationController
   end
 
   def destroy
-    p = ParticipantManagement.find(params[:id])
-    p.destroy
-    redirect_to user_path(current_user.id), notice:"「#{p.battle.title}」の参加を取り消しました"
+    cancel = ParticipantManagement.find(params[:id])
+    cancel.destroy
+    redirect_to user_path(current_user.id), notice:"「#{cancel.battle.title}」の参加を取り消しました"
   end
   
 end
