@@ -1,10 +1,15 @@
 <div class="row">
   <% @battles.each do |battle| %>
       <div class="card-row col-lg-3 col-sm-4 col-xs-12">
-        <div class="card">
+        <!-- 過去対戦会背景色変更 本当はjQueryで制御したい -->
+        <% if battle.battle_date < DateTime.now %>
+          <div class="card past-date">
+        <% else %>
+          <div class="card">
+        <% end %>
           <div class="card-body">
             <h3 class="card-title"><%= battle.title %></h3>
-            <h6 class="card-subtitle text-muted">日時：<%= battle.battle_date.year %>年<%= battle.battle_date.month %>月<%= battle.battle_date.day %>日 <%= battle.battle_date.hour %>時 <%= battle.battle_date.min %>分</h6></br>
+            <h6 class="card-subtitle text-muted battle-date">日時：<%= battle.battle_date.year %>年<%= battle.battle_date.month %>月<%= battle.battle_date.day %>日 <%= battle.battle_date.hour %>時 <%= battle.battle_date.min %>分</h6></br>
             <h6 class="card-subtitle text-muted">場所：<%= battle.place %></h6></br>
             <p class="card-text"><%= battle.content %></p>
             <div class="btn-row">
