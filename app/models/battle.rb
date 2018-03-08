@@ -25,4 +25,9 @@ class Battle < ApplicationRecord
     random_battles = slice_battles.reverse
     return random_battles
   end
+  
+  def self.fetch_all_battles_order_desc
+    battles = Battle.all.order("battle_date DESC")
+    return battles
+  end
 end

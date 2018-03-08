@@ -7,7 +7,7 @@ class BattlesController < ApplicationController
   end
   
   def index
-    @battles = Battle.all.order("battle_date DESC")
+    @battles = Battle.fetch_all_battles_order_desc
   end
   
   def new
