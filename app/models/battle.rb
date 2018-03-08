@@ -15,4 +15,14 @@ class Battle < ApplicationRecord
       errors.add(:battle_date, "は現在以降の日時を入力してください。") 
     end
   end
+  
+  def self.fetch_random_row_battles(want)
+    battles = Battle.where("battle_date >= ?", DateTime.now)
+    slice_battles = battles.shuffle.slice(0..want-1)
+    slice_battles.sort! do |a,b|
+      a[:battle_date] <=> b[:battle_date]
+    end
+    random_battles = slice_battles.reverse
+    return random_battles
+  end
 end

@@ -2,6 +2,10 @@ class BattlesController < ApplicationController
   before_action :set_battle, only:[:show, :edit, :update, :destroy]
   before_action :past_battle_locked, only:[:edit, :update, :destroy]
   
+  def top
+    @random_battles = Battle.fetch_random_row_battles(3)
+  end
+  
   def index
     @battles = Battle.all.order("battle_date DESC")
   end

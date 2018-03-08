@@ -8,3 +8,27 @@
   <h2>SF5 対戦会アプリ</h2>
   <p>このサービスはStreetFighter5の対戦会アプリです。<%= link_to 'ユーザー登録', new_user_registration_path %>後、ログインすると対戦会の作成と参加ができます。</p>
 </div>
+<br>
+<h4>ランダムピックアップ！</h4>
+<p>もっと見たい方は<%= link_to "こちらへ！", battles_path %></p>
+<div class="row">
+  <% @random_battles.each do |battle| %>
+    <div class="card-row col-sm-4 col-xs-12">
+     <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%= battle.title %></h3>
+          <h6 class="card-subtitle text-muted battle-date">日時：<%= battle.battle_date.year %>年<%= battle.battle_date.month %>月<%= battle.battle_date.day %>日 <%= battle.battle_date.hour %>時 <%= battle.battle_date.min %>分</h6></br>
+          <h6 class="card-subtitle text-muted">場所：<%= battle.place %></h6></br>
+          <p class="card-text"><%= battle.content %></p>
+          <div class="btn-row">
+            <div class="action-menu col-xs-4">
+              <% if user_signed_in? %>
+                <%= link_to "show", battle_path(battle.id), class: "btn btn-outline-warning" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
