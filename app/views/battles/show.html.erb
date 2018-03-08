@@ -20,7 +20,7 @@
           <th><%= @battle.content %></th>
         </tr>
       </table>
-      
+       
       <% unless @battle.battle_date < DateTime.now %>
         <div class="participant-button">
           <% if @joined.present? %>

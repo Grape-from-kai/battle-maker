@@ -15,10 +15,10 @@
             <div class="btn-row">
               <div class="action-menu col-xs-4">
                 <% if user_signed_in? %>
-                  <%= link_to "show", battle_path(battle.id),class: "btn btn-outline-warning" %>
+                  <%= link_to "show", battle_path(battle.id), class: "btn btn-outline-warning" %>
                   <% if organizer?(battle) == true && battle.battle_date > DateTime.now %>
-                    <%= link_to "edit",edit_battle_path(battle.id),class: "btn btn-outline-success" %>
-                    <%= link_to "destroy",battle_path(battle.id),method: :delete,class: "btn btn-outline-danger" %>
+                    <%= link_to "edit",edit_battle_path(battle.id), class: "btn btn-outline-success" %>
+                    <%= link_to "destroy", battle_path(battle.id), method: :delete, class: "btn btn-outline-danger", data: { confirm: "本当に削除しますか？"} %>
                   <% end %>
                 <% end %>
               </div>
