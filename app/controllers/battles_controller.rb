@@ -1,5 +1,6 @@
 class BattlesController < ApplicationController
   before_action :set_battle, only:[:show, :edit, :update, :destroy]
+  before_action :past_battle_locked, only:[:edit, :update, :destroy]
   
   def index
     @battles = Battle.all.order("battle_date DESC")
@@ -50,5 +51,11 @@ class BattlesController < ApplicationController
   
   def set_battle
     @battle = Battle.find(params[:id])
+  end
+  
+  def past_battle_locked
+    if @battle.battle_date < DateTime.now
+      redirect_to battles_path, notice: "過去のイベントに対する操作はできません。"
+    end
   end
 end

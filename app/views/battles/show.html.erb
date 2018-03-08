@@ -21,13 +21,15 @@
         </tr>
       </table>
       
-      <div class="participant-button">
-        <% if @joined.present? %>
-          <%= link_to "cancel", participant_management_path(@joined.id),class: "btn btn-outline-danger", method: :delete %>
-        <% else %>
-          <%= link_to "join", participant_managements_path(battle_id: @battle.id),class: "btn btn-outline-primary", method: :post %>
-        <% end %>
-      </div>
+      <% unless @battle.battle_date < DateTime.now %>
+        <div class="participant-button">
+          <% if @joined.present? %>
+            <%= link_to "cancel", participant_management_path(@joined.id),class: "btn btn-outline-danger", method: :delete %>
+          <% else %>
+            <%= link_to "join", participant_managements_path(battle_id: @battle.id),class: "btn btn-outline-primary", method: :post %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     
     <div class="participant-info col-md-6">
