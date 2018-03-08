@@ -9,15 +9,14 @@ class BattlesController < ApplicationController
     if params[:back]
       @battle = Battle.new(battle_params)
     else
-      @battle = Battle.new
+      @battle = Battle.build
     end
   end
     
   def create
-    # @battle = Battle.new(battle_params)
-    # @battle.user_id = current_user.id
-    # アソシエーションメソッド使用、しかしuser_idが@battleに格納されず。
-    @battle = current_user.battles.new(battle_params)
+    # @battle = current_user.battles.new(battle_params)だとuser_idが@battleに格納されず。
+    @battle = Battle.new(battle_params)
+    @battle.user = current_user
     @battle.save
     redirect_to battles_path
   end
