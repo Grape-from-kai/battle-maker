@@ -9,16 +9,19 @@ class BattlesController < ApplicationController
     if params[:back]
       @battle = Battle.new(battle_params)
     else
-      @battle = Battle.build
+      @battle = Battle.new
     end
   end
     
   def create
     # @battle = current_user.battles.new(battle_params)だとuser_idが@battleに格納されず。
+    # 上記が上手くいかないのでform内hidden_fieldでuser_idを持たせてます
     @battle = Battle.new(battle_params)
-    @battle.user = current_user
-    @battle.save
-    redirect_to battles_path
+    if @battle.save
+      redirect_to battles_path, notice: "対戦会を作成しました！"
+    else
+      render 'new'
+    end
   end
   
   def show

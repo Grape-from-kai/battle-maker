@@ -2,7 +2,7 @@
   <!-- エラー表示 -->
   <% if @battle.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@battle.errors.count, "error") %> prohibited this blog from being saved:</h2>
+      <h2><%=@battle.errors.count %> 件のエラーが発生しました:</h2>
       <ul>
       <% @battle.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,13 +12,14 @@
   <% end %>
   
   <!-- 新規作成/編集フォーム -->
-  <table class="field">
+  <p>*印は必須事項です。</p>
+  <table class="form-field">
     <tr>
-      <td><%= form.label :title %></td>
+      <td><%= form.label :title %>*</td>
       <td><%= form.text_field :title, id: :battle_title %></td>
     </tr>
     <tr>
-      <td><%= form.label :battle_date %></td>
+      <td><%= form.label :battle_date %>*</td>
       <td><%= form.datetime_select :battle_date %></td>
     </tr>
     <tr>
@@ -30,7 +31,8 @@
       <td><%= form.text_area :content, id: :battle_content %></td>
     </tr>
     <tr>
-      <td></td>
+      <!-- hidden_field: createアクション内でuser_idを保持するため -->
+      <td><%= form.hidden_field :user_id, value: current_user.id %></td>
       <td class="actions"><%= form.submit %></td>
     </tr>
   </table>

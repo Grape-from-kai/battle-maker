@@ -1,8 +1,16 @@
 ja:
   activerecord:
+    models:
+      battle: 対戦会
     attributes:
       user:
+        username: 氏名
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      battle:
+        title: 対戦会名
+        battle_date: 対戦会日時
+        place: 場所
+        content: 概要
