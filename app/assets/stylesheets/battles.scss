@@ -39,6 +39,14 @@
     padding-bottom: 2rem;
 }
 
+.comment-table{
+    padding: 0 1rem;
+    overflow-y: scroll;
+    height: 10rem;
+    max-width: 100%;
+    display: inline-block;
+}
+
 .form-field{
     white-space: nowrap;
 }
