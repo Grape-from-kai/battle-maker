@@ -10,6 +10,10 @@ class Battle < ApplicationRecord
   validates :place, length: { maximum: 200 }
   validates :content, length: { maximum: 1000 }
     
+  #住所から緯度経度に変換
+  geocoded_by :place
+  after_validation :geocode, if: :place_changed?
+    
   def battle_date_cannot_be_in_the_past
     if battle_date.present? && battle_date < DateTime.now
       errors.add(:battle_date, "は現在以降の日時を入力してください。") 
