@@ -21,7 +21,8 @@ class BattlesController < ApplicationController
   def create
     # @battle = current_user.battles.new(battle_params)だとuser_idが@battleに格納されず。
     # 上記が上手くいかないのでform内hidden_fieldでuser_idを持たせてます
-    @battle = Battle.new(battle_params)
+    @battle = current_user.battles.new(battle_params)
+    binding.pry
     if @battle.save
       redirect_to battles_path, notice: "対戦会を作成しました！"
     else
@@ -50,7 +51,7 @@ class BattlesController < ApplicationController
 
   private
   def battle_params
-    params.require(:battle).permit(:title, :content, :place, :battle_date, :user_id)
+    params.require(:battle).permit(:title, :content, :place, :battle_date)
   end
   
   def set_battle

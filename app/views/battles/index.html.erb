@@ -1,22 +1,9 @@
 <div class="row">
-  <% i = 0 %>
+  <%# i = 0 %>
   <% @battles.each do |battle| %>
       <div class="card-row col-lg-3 col-sm-4 col-xs-12">
-        <!-- 過去対戦会背景色変更 jQueryで制御できるようにしたけど... -->
-        <!--<%# if battle.battle_date < DateTime.now %>-->
-        <!--  <div class="card past-date">-->
-        <!--<%# else %>-->
-        <!--  <div class="card">-->
-        <!--<%# end %>-->
-        <div class="card <%= i %>" data-date="<%= battle.battle_date %>">
-          <% if battle.battle_date < DateTime.current %>
-          <script>
-            $(function(){
-                $(".<%= i %>").addClass("past-date");
-            });
-          </script>
-          <% end %>
-          <% i += 1 %>
+        <!-- 過去対戦会背景色変更 battle.js内でunixtimeで比較するための処理をしてます-->
+        <div class="card" data-date="<%= battle.battle_date.to_time.to_i %>">
           <div class="card-body">
             <h3 class="card-title"><%= battle.title %></h3>
             <h6 class="card-subtitle text-muted battle-date">日時：<%= battle.battle_date.year %>年<%= battle.battle_date.month %>月<%= battle.battle_date.day %>日 <%= battle.battle_date.hour %>時 <%= battle.battle_date.min %>分</h6></br>

@@ -1,7 +1,11 @@
-// $(function(){
-//     var battleDate = $("#battle").data("data-date");
-//     var now = new Date();
-//     if(battleDate < now){
-//         $(".battle").addClass("past-date");
-//   }
-// });
+$(function () {
+  var now = new Date();
+  var unixNow = Date.parse(now);
+      $(".card").each(function(){
+          var battleDate = $(this).data("date") * 1000;
+          if (battleDate < unixNow){
+          $(this).addClass("past-date");
+      };
+    }
+  )}
+ );
