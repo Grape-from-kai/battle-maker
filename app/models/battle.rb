@@ -4,7 +4,6 @@ class Battle < ApplicationRecord
   has_many :users, through: :participant_managements
   has_many :comments, dependent: :destroy
   
-  #length: { in 1..適当な数字}とpresenceは併用すべき？
   validates :title, length: { in: 1..50 }
   validate :battle_date_cannot_be_in_the_past
   validates :place, length: { maximum: 200 }
