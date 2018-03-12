@@ -43,3 +43,6 @@ gem 'rails-i18n', '~> 5.1'
 # GoogleMapApi geocoder
 gem 'geocoder'
 
+# ページ遷移時にjsが効かないため
+# https://github.com/turbolinks/turbolinks-classic#jqueryturbolinks
+gem 'jquery-turbolinks'
