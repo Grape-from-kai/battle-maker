@@ -13,6 +13,5 @@
 //= require rails-ujs
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.js
-//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .

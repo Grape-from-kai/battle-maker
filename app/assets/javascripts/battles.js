@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   var now = new Date();
   var unixNow = Date.parse(now);
       $(".card").each(function(){
