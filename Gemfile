@@ -42,3 +42,4 @@ gem 'rails-i18n', '~> 5.1'
 
 # GoogleMapApi geocoder
 gem 'geocoder'
+
