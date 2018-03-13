@@ -6,6 +6,12 @@ class User < ApplicationRecord
   
   has_many :battles, dependent: :destroy
   has_many :participant_managements, dependent: :destroy
-  # has_many :battles, through: :participant_managements
+  has_many :participant_battles, through: :participant_managements, source: :battle
   has_many :comments, dependent: :destroy
+  
+  def self.fetch_participant_battles_ordered_desc(user_id)
+    user = User.find(user_id)
+    participants = user.participant_managements.joins(:battle).all.order("battles.battle_date DESC")
+    return participants
+  end
 end
