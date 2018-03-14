@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       battle: 対戦会
+      user: ユーザ
     attributes:
       user:
         username: 氏名
@@ -9,6 +10,7 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+        current_password: 現在のパスワード
       battle:
         title: 対戦会名
         battle_date: 対戦会日時
