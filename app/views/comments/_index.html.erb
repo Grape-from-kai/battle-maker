@@ -9,6 +9,9 @@
         <tr>
           <td><%= comment.user.username %></td>
           <td><%= comment.content %></td>
+          <% if comment.user == current_user %>
+            <td><%= link_to '×',comment_path(comment), method: :delete, data: {confirm: "このコメントを削除しますか？"} %></td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>

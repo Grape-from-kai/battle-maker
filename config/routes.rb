@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     collection do
       get 'top'
     end
-    resources :comments
+    resources :comments, shallow: true
   end
     
   resources :participant_managements, only:[:index, :create, :destroy]
