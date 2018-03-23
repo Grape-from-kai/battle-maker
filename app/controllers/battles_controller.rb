@@ -23,7 +23,7 @@ class BattlesController < ApplicationController
     if @battle.save
       redirect_to battles_path, notice: "対戦会を作成しました！"
     else
-      render 'new'
+      render :new
     end
   end
   
