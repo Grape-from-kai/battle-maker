@@ -25,12 +25,10 @@ class Battle < ApplicationRecord
     slice_battles.sort! do |a,b|
       a[:battle_date] <=> b[:battle_date]
     end
-    random_battles = slice_battles.reverse
-    return random_battles
+    slice_battles.reverse
   end
   
   def self.fetch_all_battles_order_desc
-    battles = Battle.all.order("battle_date DESC")
-    return battles
+    Battle.all.order("battle_date DESC")
   end
 end
